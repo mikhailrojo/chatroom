@@ -1,16 +1,21 @@
 export default [
 	{
-		name: 'User 1',
+		name: 'you',
+		isOnline: true,
+		id: 0
+	},
+	{
+		name: 'valeriy',
 		isOnline: true,
 		id: 1
 	},
 	{
-		name: 'User 2',
+		name: 'daniel',
 		isOnline: true,
 		id: 2
 	},
 	{
-		name: 'User 3',
+		name: 'kirien',
 		isOnline: false,
 		id: 3
 	}

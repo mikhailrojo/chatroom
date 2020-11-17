@@ -7,6 +7,7 @@ export type User = {
 export type Message = {
 	id: number;
 	authorId: User['id'];
+	authorName: User['name'];
 	textContent: string;
 	addresseeId: number,
 	date: Date;
