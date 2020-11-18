@@ -3,7 +3,7 @@ import messages from './mocks/messages';
 import users from './mocks/users';
 
 /** current user hard-coded id as we do everything in mocks */
-const CURRENT_USER_ID = 0;
+export const CURRENT_USER_ID = 0;
 
 /** returns current user correspondents */
 export const getUsers = (): Promise<User[]> => Promise.resolve(users.filter(user => user.id !== CURRENT_USER_ID));
@@ -18,15 +18,8 @@ export const getMessagesByUser = (selectedUser: User): Promise<Message[]> => Pro
 		|| msg.addresseeId === selectedUser.id && msg.authorId === CURRENT_USER_ID
 	)]);
 
-/** registers with backend new message */
-export const registerNewMessage = ({message, toUser, fromUser}: {message: string; toUser: User; fromUser: User}) => {
-	const newMessage = uploadNewMessage({message, toUser, fromUser});
-
-	messages.push(newMessage);
-};
-
 /** I am mocking a function which uploads the message to the server */
-export const uploadNewMessage = ({message, toUser, fromUser}): Message => {
+const uploadNewMessage = ({message, toUser, fromUser}): Message => {
 	// upload the message to server and return its id, time and user (but i hard code it here)
 	const nextMessageId = Math.max(...messages.map(msg => msg.id)) + 1;
 
@@ -38,4 +31,11 @@ export const uploadNewMessage = ({message, toUser, fromUser}): Message => {
 		textContent: message,
 		authorId: CURRENT_USER_ID
 	};
+};
+
+/** registers with backend new message */
+export const registerNewMessage = ({message, toUser, fromUser}: {message: string; toUser: User; fromUser: User}) => {
+	const newMessage = uploadNewMessage({message, toUser, fromUser});
+
+	messages.push(newMessage);
 };

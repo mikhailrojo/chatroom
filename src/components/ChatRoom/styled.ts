@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const StyledChatRoom = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	height: 100%;
 `;
 
@@ -30,6 +31,10 @@ export const StyledUsers = styled(Users)`
 	padding: 30px;
 	margin: 0 30px 0 0;
 	flex: 1;
+	
+	@media (max-width: 720px) {
+		margin: 0;
+	}
 `;
 
 export const StyledHistory = styled(History)`
@@ -45,4 +50,5 @@ export const StyledMessageAndHistory = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	flex: 5;
+	flex-basis: auto;
 `;

@@ -3,6 +3,7 @@ import {MessageBox} from '../MessageBox';
 
 export const StyledInput = styled.input`
 	width: 100%;
+	height: 100%;
 	outline: none;	
 	border:none;
 	background-image:none;
